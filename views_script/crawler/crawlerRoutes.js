@@ -412,7 +412,7 @@ module.exports = {
         // info[3] = await crawler.queryNews4(InputKeyword);
         // info[4] = await crawler.queryNews5(InputKeyword);
         // var email_body_info = await email_body.allinfo(info);
-        // email.sendMail("a0928063208@gmail.com","ICRT Mail Test",email_body_info);
+        // email.sendMail("xxx@gmail.com","ICRT Mail Test",email_body_info);
 
 
         // job1
@@ -425,7 +425,7 @@ module.exports = {
         //         info[3] = await crawler.queryNews4(InputKeyword);
         //         info[4] = await crawler.queryNews5(InputKeyword);
         //         var email_body_info = await email_body.allinfo(info);
-        //         email.sendMail("a0928063208@gmail.com","ICRT Mail Test",email_body_info);
+        //         email.sendMail("xxx@gmail.com","ICRT Mail Test",email_body_info);
         //     });
         // } catch (err) {
         //     console.log(err);
@@ -441,7 +441,7 @@ module.exports = {
         //         // info[3] = await crawler.queryNews4(InputKeyword);
         //         // info[4] = await crawler.queryNews5(InputKeyword);
         //         // var email_body_info = await email_body.allinfo(info);
-        //         // email.sendMail("a0928063208@gmail.com","ICRT Mail Test",email_body_info);
+        //         // email.sendMail("xxx@gmail.com","ICRT Mail Test",email_body_info);
         //     });
         // } catch (err) {
         //     console.log(err);
