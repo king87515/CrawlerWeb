@@ -1,0 +1,37 @@
+{
+  "name": "icrt_investtool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "stop": "node server.stop.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.9",
+    "child_process": "^1.0.2",
+    "cron": "^1.8.2",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^8.6.0",
+    "ejs-mate": "^3.0.0",
+    "express": "^4.17.1",
+    "forever": "^4.0.0",
+    "fs": "0.0.1-security",
+    "html-pdf-node": "^1.0.7",
+    "http": "0.0.1-security",
+    "https": "^1.0.0",
+    "mongoose": "^5.12.12",
+    "node-schedule": "^2.0.0",
+    "nodemailer": "^6.6.1",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7",
+    "pm2": "^5.1.0",
+    "request": "^2.88.2",
+    "selenium-webdriver": "^4.0.0-beta.3",
+    "socket.io": "^4.3.1",
+    "socket.io-client": "^4.3.2"
+  }
+}

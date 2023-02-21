@@ -1,0 +1,230 @@
+<html lang="en">
+
+<head>
+	<title>開發搜尋投資案新聞工具</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/scripts/jquery-ui-1.12.1.custom/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="assets/scripts/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/scripts/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" />
+
+	<link type="text/css" rel="stylesheet" href="assets/scripts/jsgrid-1.5.3/jsgrid.min.css" />
+	<link type="text/css" rel="stylesheet" href="assets/scripts/jsgrid-1.5.3/jsgrid-theme.min.css" />
+
+	<!-- <link rel="stylesheet" href="assets/scripts/multiple-email/dist/jquery.emailinput.min.css" /> -->
+	<link type="text/css" rel="stylesheet" href="assets/css/email.multiple.css">
+
+	<script type="text/javascript" src="assets/scripts/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="assets/scripts/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+	<script type="text/javascript" src="assets/scripts/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+
+	<script type="text/javascript" src="assets/scripts/jsgrid-1.5.3/jsgrid.min.js"></script>
+
+	<!-- <script type="text/javascript" src="assets/scripts/multiple-email/dist/jquery.emailinput.min.js"></script> -->
+	<script type="text/javascript" src="assets/scripts/jquery.email.multiple.js"></script>
+
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="assets/css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/icon.png">
+
+	<script type="text/javascript" src="js/script/index.js"></script>
+
+	<script rel="stylesheet" src="assets/scripts/sweetalert2/dist/sweetalert2.all.min.js"></script>
+	<script rel="stylesheet" src="assets/scripts/sweetalert2/dist/sweetalert2.min.js"></script>
+	<link rel="stylesheet" href="assets/scripts/sweetalert2/dist/sweetalert2.css">
+</head>
+
+<body>
+	<!-- WRAPPER -->
+
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand" style="width:260px">
+				<!-- <a href="index.ejs"><img src="assets/img/logo.png" alt="Klorofil Logo" width="140px"
+						class="img-responsive logo"></a> -->
+				<div style="width:200px; margin-left:-16px;"><a href="index.ejs"><b
+							style="color:white;">開發搜尋投資案新聞工具</b></a></div>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth"><i
+							class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+				<div id="navbar-menu">
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a class=""><i></i><span></span></a></li>
+						<li><a href="index.ejs" class="active"><i class="lnr lnr-home"></i><span>即時搜尋</span></a>
+						</li>
+						<li><a href="settings.ejs" class=""><i class="lnr lnr-chart-bars"></i><span>排程設定</span></a>
+						</li>
+						<li><a href="history.ejs" class=""><i class="lnr lnr-dice"></i><span>搜尋設定</span></a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<!-- OVERVIEW -->
+					<div class="panel panel-headline">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="panel-body">
+										<form method="POST" id="search_form"></form>
+										<form method="POST" id="send_form"></form>
+
+										<table>
+											<tr>
+												<td style="width: 150px;">
+													<h4>關鍵字：</h4>
+												</td>
+												<td style="width: 650px;">
+													<input class="form-control" id="InputKeyword" type="text"
+														form="search_form"><!-- required -->
+												</td>
+												<td>
+												</td>
+											</tr>
+											<tr>
+												<td style="width: 150px;">
+													<h4>網頁查詢：</h4>
+												</td>
+												<td style="width: 650px;">
+													<select class="form-control" id="InputWebpage">
+														<option value="0">經濟部本部新聞 </option>
+														<option value="1">投審會最新公告 </option>
+														<option value="2">科技部新聞資料 </option>
+														<option value="3">公開資訊觀測站即時重大訊息 </option>
+														<!-- <option value="4">Google搜尋引擎查詢 </option> -->
+													</select>
+												</td>
+												<td>
+													<button class="btn btn-primary" type="submit" form="search_form"
+														required style="margin-left: 10px; width: 100px;"
+														id="search_realtime">搜尋
+													</button>
+												</td>
+											</tr>
+											<tr>
+												<td style="width: 150px;">
+													<h4>Email：</h4>
+												</td>
+												<td style="width: 650px;">
+													<div id='TableContainer'>
+														<div id='InputEmailContainer'>
+															<input type="text" class="form-control" id="InputEmail">
+														</div>
+													</div>
+												</td>
+												<td>
+													<button class="btn btn-warning" type="submit" form="send_form"
+														style="margin-left: 10px; width: 100px;"
+														id="search_send">寄發</button>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">即時搜尋</h3>
+						</div>
+						<div class="panel-body">
+							<div id="jsGrid" class="jsgrid form-group "
+								style="position: relative; height: auto; width: 100%;">
+								<div class="jsgrid-grid-header jsgrid-header-scrollbar">
+									<table class="jsgrid-table">
+										<tbody>
+											<tr class="jsgrid-header-row">
+												<th style="width: 100px;"
+													class="jsgrid-header-cell jsgrid-header-sortable">NULL</th>
+												<th style="width: 150px;"
+													class="jsgrid-header-cell jsgrid-header-sortable">NULL</th>
+												<th style="width: 50px;"
+													class="jsgrid-header-cell jsgrid-align-center jsgrid-header-sortable">
+													NULL</th>
+												<th style="width: 50px;"
+													class="jsgrid-header-cell jsgrid-align-right jsgrid-header-sortable">
+													NULL</th>
+											</tr>
+											<tr class="jsgrid-filter-row" style="display: none;">
+												<td style="width: 100px;" class="jsgrid-cell"><input type="text"></td>
+												<td style="width: 150px;" class="jsgrid-cell"><input type="text"></td>
+												<td style="width: 50px;" class="jsgrid-cell jsgrid-align-center"><input
+														type="number">
+												</td>
+												<td style="width: 50px;" class="jsgrid-cell jsgrid-align-right"><input
+														type="number">
+												</td>
+											</tr>
+											<tr class="jsgrid-insert-row" style="display: none;">
+												<td style="width: 100px;" class="jsgrid-cell"><input type="text"></td>
+												<td style="width: 150px;" class="jsgrid-cell"><textarea></textarea></td>
+												<td style="width: 50px;" class="jsgrid-cell jsgrid-align-center"><input
+														type="number">
+												</td>
+												<td style="width: 50px;" class="jsgrid-cell jsgrid-align-right"><input
+														type="number">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="jsgrid-grid-body">
+									<table class="jsgrid-table">
+										<tbody>
+											<tr class="jsgrid-nodata-row">
+												<td class="jsgrid-cell" colspan="4">Not found</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="jsgrid-pager-container" style="display: none;"></div>
+								<div class="jsgrid-load-shader" style="position: absolute; inset: 0px; z-index: 1000;">
+								</div>
+								<div class="jsgrid-load-panel"
+									style="position: absolute; top: 50%; left: 50%; z-index: 1000; margin-top: -35px; margin-left: -105px;">
+									Please wait...</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Javascript -->
+		<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+		<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+		<script src="assets/scripts/klorofil-common.js"></script>
+</body>
+
+</html>

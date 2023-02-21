@@ -1,0 +1,22 @@
+{
+    "name": "emailinput",
+    "title": "jQuery email input",
+    "description": "Support input control for email address",
+    "version": "1.0.6",
+    "author": {
+        "name": "Jong-Ha Ahn",
+        "email": "jongha.ahn@mrlatte.net",
+        "url": "http://www.mrlatte.net"
+    },
+    "dependencies": {
+        "jquery": ">=1.7.0"
+    },
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://github.com/jongha/jquery.emailinput/blob/master/LICENSE"}
+    ],
+    "keywords": ["email", "address", "input"],
+    "bugs": "https://github.com/jongha/jquery.emailinput/issues",
+    "homepage": "https://github.com/jongha/jquery.emailinput",
+    "docs": "https://github.com/jongha/jquery.emailinput"
+}

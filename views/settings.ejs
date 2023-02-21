@@ -1,0 +1,341 @@
+<html lang="en">
+
+<head>
+	<title>開發搜尋投資案新聞工具</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/scripts/jquery-ui-1.12.1.custom/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="assets/scripts/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/scripts/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" />
+
+	<link type="text/css" rel="stylesheet" href="assets/scripts/jsgrid-1.5.3/jsgrid.min.css" />
+	<link type="text/css" rel="stylesheet" href="assets/scripts/jsgrid-1.5.3/jsgrid-theme.min.css" />
+
+	<!-- <link rel="stylesheet" href="assets/scripts/multiple-email/dist/jquery.emailinput.min.css" /> -->
+	<link  type="text/css" rel="stylesheet" href="assets/css/email.multiple.css">
+
+	<script type="text/javascript" src="assets/scripts/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="assets/scripts/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+	<script type="text/javascript" src="assets/scripts/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+
+	<script type="text/javascript" src="assets/scripts/jsgrid-1.5.3/jsgrid.min.js"></script>
+
+	<!-- <script type="text/javascript" src="assets/scripts/multiple-email/dist/jquery.emailinput.min.js"></script> -->
+	<script type="text/javascript" src="assets/scripts/jquery.email.multiple.js"></script>
+
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="assets/css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- FontAwesome -->
+	<script defer src="assets/scripts/fontawesome.js"></script>
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/icon.png">
+
+	<script type="text/javascript" src="js/script/settings.js"></script>
+
+</head>
+
+<body>
+	<!-- WRAPPER -->
+
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand" style="width:260px">
+				<!-- <a href="index.ejs"><img src="assets/img/logo.png" alt="Klorofil Logo" width="140px"
+						class="img-responsive logo"></a> -->
+				<div style="width:200px; margin-left:-16px;"><a href="index.ejs"><b
+							style="color:white;">開發搜尋投資案新聞工具</b></a></div>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth"><i
+							class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+				<div id="navbar-menu">
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a class=""><i></i><span></span></a></li>
+						<li><a href="index.ejs" class=""><i class="lnr lnr-home"></i><span>即時搜尋</span></a>
+						</li>
+						<li><a href="settings.ejs" class="active"><i
+									class="lnr lnr-chart-bars"></i><span>排程設定</span></a>
+						</li>
+						<li><a href="history.ejs" class=""><i class="lnr lnr-dice"></i><span>搜尋設定</span></a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<!-- OVERVIEW -->
+					<div class="panel panel-headline">
+						<!-- <div class="panel-heading">
+							<h3 class="panel-title">搜尋設定</h3>
+						 <p class="panel-subtitle">Period: Oct 14, 2016 - Oct 21, 2016</p> 
+						</div> -->
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="panel-body">
+										<form method="POST" id="setting_form"></form>
+
+										<table>
+											<tr style="height:40px">
+												<td style="width: 150px; border-bottom:1pt #dddddd solid;">
+													<h4>Email：</h4>
+												</td>
+												<td colspan="4" style="width: 850px; border-bottom:1pt #dddddd solid;">
+													<div id='TableContainer'>
+														<div id='InputEmailContainer'>
+															<input type="text" class="form-control" id="InputEmail" >
+														</div>
+													</div>
+												</td>
+												<td>
+													<button class="btn btn-primary" id="setting_submit" type="submit"
+														form="setting_form" style="margin-left: 10px; width: 100px;">設定
+													</button>
+												</td>
+											</tr>
+											<tr style="height:40px">
+												<td>
+													<h4>啟用時間：</h4>
+												</td>
+												<td colspan="4" style="border-bottom:1pt #dddddd solid;">
+													<input type="checkbox" id="monday" name="monday" value="星期一">
+													<label style="margin-right: 10px;" for="monday"> 星期一</label>
+													<input type="checkbox" id="tuesday" name="tuesday" value="星期二">
+													<label style="margin-right: 10px;" for="tuesday"> 星期二</label>
+													<input type="checkbox" id="wednesday" name="wednesday" value="星期三">
+													<label style="margin-right: 10px;" for="wednesday"> 星期三</label>
+													<input type="checkbox" id="thursday" name="thursday" value="星期四">
+													<label style="margin-right: 10px;" for="thursday"> 星期四</label>
+													<input type="checkbox" id="friday" name="friday" value="星期五">
+													<label style="margin-right: 10px;" for="friday"> 星期五</label>
+													<input type="checkbox" id="saturday" name="saturday" value="星期六">
+													<label style="margin-right: 10px;" for="saturday"> 星期六</label>
+													<input type="checkbox" id="sunday" name="sunday" value="星期日">
+													<label style="margin-right: 10px;" for="sunday"> 星期日</label>
+
+												</td>
+												<td>
+												</td>
+											</tr>
+											<tr style="height:40px">
+												<td> </td>
+												<td colspan="4" style="border-bottom:1pt #dddddd solid;">
+													<label> 開始 </label>
+													<input style="width: 150px; display: inline;" class="form-control"
+														id="InputTimeFrom" type="time" form="setting_form" required>
+													<label> 至 </label>
+													<input style="width: 150px; display: inline;" class="form-control"
+														id="InputTimeTo" type="time" form="setting_form" required>
+												<td>
+												</td>
+											</tr>
+											<tr style="height:40px">
+												<td style="border-bottom:1pt #dddddd solid;"> </td>
+												<td colspan="4" style="width: 25px; border-bottom:1pt #dddddd solid;">
+													<input type="checkbox" id="KeywordValid"><label
+														style="margin-left: 3px;">啟用排程</label>
+												</td>
+
+											</tr>
+											<tr>
+												<td style="width: 150px; border-bottom:1pt #dddddd solid;">
+													<h4>搜尋頻率：</h4>
+												</td>
+												<td colspan="2" style="width: 300px; border-bottom:1pt #dddddd solid;">
+													<select class="form-control" id="InputFrequencyTime">
+														<option value='1'>每隔 1 天</option>
+														<option value='2'>每隔 12 小時</option>
+														<option value='4'>每隔 6 小時</option>
+														<option value='24'>每隔 1 小時</option>
+														<option value='48'>每隔 30 分鐘</option>
+														<option value='144'>每隔 10 分鐘</option>
+													</select>
+												</td>
+												<td style="width: 15px; border-bottom:1pt #dddddd solid;"></td>
+												<td style="width: 350px; border-bottom:1pt #dddddd solid;">
+													<input class="form-control" id="InputFrequency" type="time"
+														form="setting_form" required>
+												</td>
+												<td>
+												</td>
+											</tr>
+											<tr>
+												<td style="width: 150px;">
+													<h4>關鍵字：</h4>
+												</td>
+												<td style="width: 25px; border-bottom:1pt #dddddd solid;">
+													<input type="checkbox" id="KeywordSearchMOEA">
+												</td>
+												<td style="width: 275px; border-bottom:1pt #dddddd solid;">
+													<h5>經濟部本部新聞</h5>
+												</td>
+												<td style="border-bottom:1pt #dddddd solid;"> </td>
+												<td style="width: 400px; border-bottom:1pt #dddddd solid;">
+													<input class="form-control" id="KeywordMOEA" type="text"
+														form="setting_form">
+												</td>
+												<td>
+												</td>
+											</tr>
+											<tr>
+												<td> </td>
+												<td style="width: 25px; border-bottom:1pt #dddddd solid;">
+													<input type="checkbox" id="KeywordSearchMOEAIC">
+												</td>
+												<td style="border-bottom:1pt #dddddd solid;">
+													<h5>投審會最新公告</h5>
+												</td>
+												<td style="border-bottom:1pt #dddddd solid;"> </td>
+												<td style="border-bottom:1pt #dddddd solid;">
+													<input class="form-control" id="KeywordMOEAIC" type="text"
+														form="setting_form">
+												</td>
+												<td> </td>
+											</tr>
+											<tr>
+												<td> </td>
+												<td style="width: 25px; border-bottom:1pt #dddddd solid;">
+													<input type="checkbox" id="KeywordSearchMOST">
+												</td>
+												<td style="border-bottom:1pt #dddddd solid;">
+													<h5>科技部新聞資料</h5>
+												</td>
+												<td style="border-bottom:1pt #dddddd solid;"> </td>
+												<td style="border-bottom:1pt #dddddd solid;">
+													<input class="form-control" id="KeywordMOST" type="text"
+														form="setting_form">
+												</td>
+												<td> </td>
+											</tr>
+											<tr>
+												<td> </td>
+												<td style="width: 25px; border-bottom:1pt #dddddd solid;">
+													<input type="checkbox" id="KeywordSearchMOPS">
+												</td>
+												<td colspan="3" style="border-bottom:1pt #dddddd solid;" colspan="2">
+													<h5>公開資訊觀測站即時重大訊息</h5>
+												</td>
+												<td> </td>
+											</tr>
+											<tr>
+												<td> </td>
+												<!-- <td style="border-bottom:1pt #dddddd solid;">
+													<input type="checkbox" id="KeywordSearchGOOGLE">
+												</td>
+												<td colspan="1" style="border-bottom:1pt #dddddd solid;">
+													<h5>Google搜尋引擎查詢</h5>
+												</td>
+												<td style="border-bottom:1pt #dddddd solid;"> </td>
+												<td style="border-bottom:1pt #dddddd solid;"> -->
+													<!--	<input class="form-control" id="KeywordGOOGLE" type="text"
+														form="setting_form"> -->
+												</td>
+												<td> </td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">排程設定</h3>
+						</div>
+						<div class="panel-body">
+							<div id="jsGrid" class="jsgrid form-group "
+								style="position: relative; height: auto; width: 100%;">
+								<div class="jsgrid-grid-header jsgrid-header-scrollbar">
+									<table class="jsgrid-table">
+										<tbody>
+											<tr class="jsgrid-header-row">
+												<th style="width: 100px;"
+													class="jsgrid-header-cell jsgrid-header-sortable">NULL</th>
+												<th style="width: 150px;"
+													class="jsgrid-header-cell jsgrid-header-sortable">NULL</th>
+												<th style="width: 50px;"
+													class="jsgrid-header-cell jsgrid-align-center jsgrid-header-sortable">
+													NULL</th>
+												<th style="width: 50px;"
+													class="jsgrid-header-cell jsgrid-align-right jsgrid-header-sortable">
+													NULL</th>
+											</tr>
+											<tr class="jsgrid-filter-row" style="display: none;">
+												<td style="width: 100px;" class="jsgrid-cell"><input type="text"></td>
+												<td style="width: 150px;" class="jsgrid-cell"><input type="text"></td>
+												<td style="width: 50px;" class="jsgrid-cell jsgrid-align-center"><input
+														type="number">
+												</td>
+												<td style="width: 50px;" class="jsgrid-cell jsgrid-align-right"><input
+														type="number">
+												</td>
+											</tr>
+											<tr class="jsgrid-insert-row" style="display: none;">
+												<td style="width: 100px;" class="jsgrid-cell"><input type="text"></td>
+												<td style="width: 150px;" class="jsgrid-cell"><textarea></textarea></td>
+												<td style="width: 50px;" class="jsgrid-cell jsgrid-align-center"><input
+														type="number">
+												</td>
+												<td style="width: 50px;" class="jsgrid-cell jsgrid-align-right"><input
+														type="number">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="jsgrid-grid-body">
+									<table class="jsgrid-table">
+										<tbody>
+											<tr class="jsgrid-nodata-row">
+												<td class="jsgrid-cell" colspan="4">Not found</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="jsgrid-pager-container" style="display: none;"></div>
+								<div class="jsgrid-load-shader" style="position: absolute; inset: 0px; z-index: 1000;">
+								</div>
+								<div class="jsgrid-load-panel"
+									style="position: absolute; top: 50%; left: 50%; z-index: 1000; margin-top: -35px; margin-left: -105px;">
+									Please wait...</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Javascript -->
+		<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+		<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+		<script src="assets/scripts/klorofil-common.js"></script>
+</body>
+
+</html>
